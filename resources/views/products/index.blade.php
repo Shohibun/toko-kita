@@ -5,9 +5,12 @@
                 List Products
             </h2>
 
-            <button class="bg-gray-100 px-10 py-2 rounded-lg font-semibold">
-                Add Product
-            </button>
+            <a href="{{ route('products.create') }}">
+                <button class="bg-gray-100 px-10 py-2 rounded-lg font-semibold">
+                    Add
+                </button>
+            </a>
+
         </div>
 
         <div class="grid md:grid-cols-3 grid-cols-1 gap-4">

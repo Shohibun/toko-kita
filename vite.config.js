@@ -9,7 +9,12 @@ export default defineConfig({
         }),
     ],
     server: {
-        host: true,
+        host: "0.0.0.0", // 🔥 WAJIB di Sail
+        hmr: {
+            host: 'localhost',
+        },
+        port: 5173,
+        strictPort: true,
         watch: {
             usePolling: true,
         },
