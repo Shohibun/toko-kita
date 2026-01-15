@@ -47,4 +47,9 @@ class ProductController extends Controller
 
         return redirect()->route('products.index')->with('success', 'Add product successfully!');
     }
+
+    public function edit(Product $product)
+    {
+        return view('products.edit', compact('product'));
+    }
 }

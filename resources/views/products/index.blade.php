@@ -36,9 +36,11 @@
                     </p>
                 </div>
 
-                <button class="w-full mt-3 bg-gray-100 px-10 py-2 rounded-lg font-semibold">
-                    Edit
-                </button>
+                <a href="{{ route('products.edit', $product) }}">
+                    <button class="w-full mt-3 bg-gray-100 px-10 py-2 rounded-lg font-semibold">
+                        Edit
+                    </button>
+                </a>
             </div>
             @endforeach
         </div>
