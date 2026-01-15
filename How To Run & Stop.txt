@@ -1,3 +1,5 @@
+PENTING: DOCKER HARUS RUNNING TERLEBIH DAHULU
+
 Menjalankan Project: 
  a. Terminal I
    - wsl --cd /mnt/e/Project/toko-kita

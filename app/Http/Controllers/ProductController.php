@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -28,13 +29,20 @@ class ProductController extends Controller
         ]);
 
         $image = $request->file('image');
-        $image->storeAs('public', $image->hashName());
+        $imageName = $image->hashName();
+
+        // simpan ke storage/app/public dengan nama hash
+        Storage::disk('public')->putFileAs(
+            '',
+            $image,
+            $imageName
+        );
 
         Product::create([
             'name' => $request['name'],
             'price' => $request['price'],
             'description' => $request['description'],
-            'image' => $image->hashName(),
+            'image' => $imageName,
         ]);
 
         return redirect()->route('products.index')->with('success', 'Add product successfully!');
