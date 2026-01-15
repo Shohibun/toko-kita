@@ -1,0 +1,18 @@
+Menjalankan Project: 
+ a. Terminal I
+   - wsl --cd /mnt/e/Project/toko-kita
+   - ./vendor/bin/sail up -d
+ 
+ b. Terminal II
+   - wsl --cd /mnt/e/Project/toko-kita
+   - ./vendor/bin/sail npm run dev
+
+
+Memberhentikan Project: 
+ a. Terminal I
+   - ./vendor/bin/sail down 
+   - Exit 
+ 
+ b. Terminal II
+   - Ctrl + C
+   - Exit 

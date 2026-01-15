@@ -1,6 +1,6 @@
 @props(['message'])
 
-<div x-data="{ open: false }"
+<div x-data="{ open: true }"
     x-show="open"
     id="alert-3"
     class="flex sm:items-center p-4 my-4 text-sm rounded-lg bg-green-100 text-green-800"
@@ -28,7 +28,7 @@
     </div>
 
     {{-- BUTTON CLOSE --}}
-    <button @click="open = true"
+    <button @click="open = false"
         type="button"
         class="ms-auto -mx-1.5 -my-1.5 rounded-md p-1.5
                    text-green-800 hover:bg-green-200
