@@ -65,7 +65,9 @@ class ProductController extends Controller
         $product->description = $request->description;
 
         if ($request->file('image')) {
-            Storage::disk('public')->delete($product->image);
+            if ($product->image !== 'noimage.png') {
+                Storage::disk('public')->delete($product->image);
+            }
             $image = $request->file('image');
             $imageName = $image->hashName();
 
@@ -81,5 +83,15 @@ class ProductController extends Controller
 
         $product->update();
         return redirect()->route('products.index')->with('success', 'Update product successfully!');
+    }
+
+    public function destroy(Product $product)
+    {
+        if ($product->image !== 'noimage.png') {
+            Storage::disk('public')->delete($product->image);
+        }
+
+        $product->delete();
+        return redirect()->route('products.index')->with('success', 'Delete product successfully!');
     }
 }

@@ -22,7 +22,7 @@
             <div class="col-span-1 mt-4">
                 <img
                     src="{{ asset('storage/' . $product->image) }}"
-                    class="w-full object-cover rounded-lg"
+                    class="w-full h-96 object-cover rounded-lg"
                     alt="{{ $product->name }}">
 
 

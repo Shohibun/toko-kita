@@ -4,6 +4,8 @@
             <h2 class="font-bold text-xl">
                 Edit Products
             </h2>
+
+            @include('products.partials.delete-product')
         </div>
 
         <div class="mt-4" x-data="{ imageUrl: '{{ asset('storage/' . $product->image) }}' }">
