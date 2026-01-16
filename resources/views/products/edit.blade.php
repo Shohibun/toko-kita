@@ -7,8 +7,9 @@
         </div>
 
         <div class="mt-4" x-data="{ imageUrl: '{{ asset('storage/' . $product->image) }}' }">
-            <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data" class="flex gap-8">
+            <form method="POST" action="{{ route('products.update', $product) }}" enctype="multipart/form-data" class="flex gap-8">
                 @csrf
+                @method('PUT')
 
                 <div class="w-6/12">
                     <img :src="imageUrl" class="rounded-lg" alt="Image">
@@ -23,7 +24,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="price" :value="__('Price')" />
-                        <x-text-input id="price" class="block mt-1 w-full" type="text" name="price" :value="$product->price" required />
+                        <x-text-input x-mask:dynamic="$money($input, ',')" id="price" class="block mt-1 w-full" type="text" name="price" :value="$product->price" required />
                         <x-input-error :messages="$errors->get('price')" class="mt-2" />
                     </div>
 
@@ -37,7 +38,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="image" :value="__('Image')" />
-                        <x-text-input accept="image/*" id="image" class="block mt-1 w-full border-2 p-2" type="file" name="image" :value="$product->image" @change="imageUrl = URL.createObjectURL($event.target.files[0])" required />
+                        <x-text-input accept="image/*" id="image" class="block mt-1 w-full border-2 p-2" type="file" name="image" :value="$product->image" @change="imageUrl = URL.createObjectURL($event.target.files[0])" />
                         <x-input-error :messages="$errors->get('image')" class="mt-2" />
                     </div>
 

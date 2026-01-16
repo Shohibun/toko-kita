@@ -1,4 +1,10 @@
-PENTING: DOCKER HARUS RUNNING TERLEBIH DAHULU
+Setup Project: 
+ a. Download docker desktop 
+   - Membuat akun docker 
+   - Running docker desktop 
+
+ b. Install laravel sail 
+   - 
 
 Menjalankan Project: 
  a. Terminal I
@@ -18,3 +24,7 @@ Memberhentikan Project:
  b. Terminal II
    - Ctrl + C
    - Exit 
+
+
+
+PENTING: DOCKER HARUS RUNNING TERLEBIH DAHULU

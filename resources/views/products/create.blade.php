@@ -23,7 +23,7 @@
 
                     <div class="mt-4">
                         <x-input-label for="price" :value="__('Price')" />
-                        <x-text-input id="price" class="block mt-1 w-full" type="text" name="price" :value="old('price')" required />
+                        <x-text-input x-mask:dynamic="$money($input, ',')" id="price" class="block mt-1 w-full" type="text" name="price" :value="old('price')" required />
                         <x-input-error :messages="$errors->get('price')" class="mt-2" />
                     </div>
 

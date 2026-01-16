@@ -39,9 +39,9 @@ class ProductController extends Controller
         );
 
         Product::create([
-            'name' => $request['name'],
-            'price' => $request['price'],
-            'description' => $request['description'],
+            'name' => $request->name,
+            'price' => str_replace('.', '', $request->price),
+            'description' => $request->description,
             'image' => $imageName,
         ]);
 
@@ -51,5 +51,35 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return view('products.edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'price' => 'required|numeric',
+        ]);
+
+        $product->name = $request->name;
+        $product->price = str_replace(".", "", $request->price);
+        $product->description = $request->description;
+
+        if ($request->file('image')) {
+            Storage::disk('public')->delete($product->image);
+            $image = $request->file('image');
+            $imageName = $image->hashName();
+
+            // simpan ke storage/app/public dengan nama hash
+            Storage::disk('public')->putFileAs(
+                '',
+                $image,
+                $imageName
+            );
+
+            $product->image = $imageName;
+        }
+
+        $product->update();
+        return redirect()->route('products.index')->with('success', 'Update product successfully!');
     }
 }
