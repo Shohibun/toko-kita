@@ -1,0 +1,76 @@
+TEKNOLOGI YANG DIGUNAKAN:
+ - Laravel 
+ - Laravel Sail 
+ - Docker 
+ - Laravel Breeze (Auth)
+ - Tailwind CSS (Default Laravel Breeze)
+ - Alpine JS 
+ - MySQL 
+
+
+SETUP PROJECT: 
+ a. Download docker desktop 
+   - Install Docker
+   - Membuat akun docker 
+   - Running docker desktop 
+
+ b. Install laravel sail 
+   - curl -s https://laravel.build/toko-kita | bash
+   - cd toko-kita 
+   - code .
+   - Delete component selenium, meilusearch, radis (docker-compose.yml)-> karena tidak dibutuhkan 
+   - Add component phpMyAdmin di docker-compose.yml 
+     phpMyAdmin: 
+	image: "phpMyAdmin:latest"
+	ports: 
+ 		- 8088:80
+	environment: 
+		MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+	links: 
+ 		- "MySQL:db"
+	dependes_on:
+ 		- MySQL 
+	networks: 
+ 		- sail
+   - ./vendor/bin/sail up id 
+
+ c. Laravel Beereze (Auth)
+   - ./vendor/bin/sail composer require laravel/breeze --dev
+   - ./vendor/bin/sail php artisan breeze:install (Blade with Alpine -> Dark Mode (No) -> PHPUnit) 
+   - ./vendor/bin/sail php artisan migrate (Create Table In phpMyAdmin)
+   - ./vendor/bin/sail npm install 
+   - ./vendor/bin/sail npm run dev 
+
+ABOUT PROJECT:
+ - MVC (Model View Controller) 
+ - ./vendor/bin/sail php artisan make:model Product -m (Membuat model product sekaligus migrasi databasenya)
+ - ./vendor/bin/sail php artisan migrate
+ - ./vendor/bin/sail php astisan make:controller ProductController (Membuat file Product Controller)
+ - ./vendor/bin/sail php artisan storage:link (Untuk mengakses storage/app/public)
+ - Database || Model || Controller || Routes || View 
+
+MENJALANKAN PROJECT: 
+ a. Terminal I
+   - wsl --cd /mnt/e/Project/toko-kita
+   - ./vendor/bin/sail up -d
+ 
+ b. Terminal II
+   - wsl --cd /mnt/e/Project/toko-kita
+   - ./vendor/bin/sail npm run dev
+
+MEMBERHENTIKAN PROJECT: 
+ a. Terminal I
+   - ./vendor/bin/sail down 
+   - Exit 
+ 
+ b. Terminal II
+   - Ctrl + C
+   - Exit 
+
+
+
+NOTE: 
+ - MENGGUNAKAN CMD & TERMINAL VS CODE STUDIO
+ - DOCKER HARUS RUNNING TERLEBIH DAHULU
+ - USERNAME & PASSOWRD LOCALHOST phpMyAdmin (.env)
+ - INSTALL LARAVEL SAIL & LARAVEL BREEZE MENGGUNAKAN 2 TERMINAL YANG BERBEDA
