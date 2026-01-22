@@ -14,7 +14,6 @@
                     Add
                 </button>
             </a>
-
         </div>
 
         <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
