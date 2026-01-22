@@ -1,17 +1,20 @@
 <?php
 
+// Controller apa saja yang dipakai & menghindari penulisan namespace panjang
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('auth/login'); // Menampilkan tampilan pertama login
 });
 
+// Harus login terlebih dahulu untuk mengakses halaman dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Harus login terlebih dahulu untuk mengakses halaman route yang telah ditentukan dibawah
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -26,4 +29,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__ . '/auth.php'; // Memuat route authentication dari Laravel Breeze / Jetstream
