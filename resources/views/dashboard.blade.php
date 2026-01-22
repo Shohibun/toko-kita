@@ -14,8 +14,8 @@
 
     <!-- About -->
     <div class="flex justify-center items-center mt-16">
-        <div class="w-6/12 text-center">
-            <h1 class="text-6xl font-bold">
+        <div class="w-8/12 text-center md:w-6/12">
+            <h1 class="text-4xl font-bold md:text-6xl">
                 Welcome to Toko Kita
             </h1>
 
@@ -36,7 +36,7 @@
     <!-- Advantage -->
     <div class="flex justify-center items-center mt-16">
         <div class="w-8/12">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="col-span-1 border-2 rounded-lg p-8">
                     <div class="w-24 mx-auto">
                         <svg fill="#000000" viewBox="0 0 15 15" id="convenience" xmlns="http://www.w3.org/2000/svg">
@@ -115,12 +115,12 @@
 
     <!-- Vision & Mission -->
     <div class="w-full mt-16">
-        <div class="grid grid-cols-2">
-            <div class="col-span-1">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="col-span-1 hidden md:contents">
                 <img src="{{ url('images/bg-mission.jpg') }}" alt="sectionMission" class="w-full h-full ">
             </div>
 
-            <div class="col-span-1 bg-gray-50 pl-4 pt-4">
+            <div class="col-span-1 bg-gray-50 p-4">
                 <div class="">
                     <h5 class="text-xl font-bold">
                         Vision
@@ -157,7 +157,7 @@
 
             <div id="controls-carousel" class="relative w-full mt-4" data-carousel="static">
                 <!-- Carousel wrapper -->
-                <div class="relative h-44 overflow-hidden rounded-lg md:h-96">
+                <div class="relative h-96 overflow-hidden rounded-lg md:h-80">
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <img src="{{ url('images/user_1.jpg') }}" alt="userSatu" class="w-32 mx-auto rounded-full">

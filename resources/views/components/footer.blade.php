@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center bg-gray-100  mt-12">
     <div class="w-8/12 py-6">
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="col-span-1">
                 <img src="{{ url('images/logo.png') }}" alt="logo" class="w-36">
 
