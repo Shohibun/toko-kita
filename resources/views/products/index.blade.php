@@ -1,6 +1,7 @@
 <x-app-layout>
     <div class="flex justify-center items-center mb-8 mt-28">
         <div class="w-10/12 md:w-8/12">
+            <!-- Mengecek apakah ada flash session "success" || Dikirim lewat controller -->
             @if(session()->has('success'))
             <x-alert message="{{ session('success') }}" />
             @endif
@@ -18,6 +19,7 @@
             </div>
 
             <div class="grid md:grid-cols-3 grid-cols-1 gap-4">
+                <!-- Melakukan perulangan sebanyak jumlah products -->
                 @foreach ($products as $product)
                 <div class="col-span-1 rounded-lg shadow-lg mt-4">
                     <img
@@ -48,6 +50,7 @@
             </div>
 
             <div class="mt-4">
+                <!-- Pagination (12) -->
                 {{ $products->links() }}
             </div>
         </div>
